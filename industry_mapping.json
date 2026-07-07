@@ -1,0 +1,37 @@
+{
+  "军工": {
+    "keywords": ["军工", "国防", "航天", "航母", "导弹", "武器", "军品", "商业航天"],
+    "akshare_board": "国防军工",
+    "typical_impact": "利好"
+  },
+  "AI/人工智能": {
+    "keywords": ["AI", "人工智能", "大模型", "算力", "芯片", "昇腾", "智算", "AIGC", "多模态AI"],
+    "akshare_board": "人工智能",
+    "typical_impact": "利好"
+  },
+  "人形机器人": {
+    "keywords": ["人形机器人", "具身智能", "机器人", "减速器", "灵巧手", "关节", "电机"],
+    "akshare_board": "机器人概念",
+    "typical_impact": "利好"
+  },
+  "固态电池": {
+    "keywords": ["固态电池", "先进电池", "高能量密度电池", "固态锂电池"],
+    "akshare_board": "固态电池",
+    "typical_impact": "利好"
+  },
+  "新能源": {
+    "keywords": ["新能源", "光伏", "风电", "锂电", "储能", "充电桩", "动力电池"],
+    "akshare_board": "新能源",
+    "typical_impact": "利好"
+  },
+  "半导体": {
+    "keywords": ["半导体", "芯片", "集成电路", "晶圆", "第三代半导体", "光刻机"],
+    "akshare_board": "半导体",
+    "typical_impact": "利好"
+  },
+  "低空经济": {
+    "keywords": ["低空经济", "eVTOL", "飞行汽车", "无人机", "低空飞行"],
+    "akshare_board": "低空经济",
+    "typical_impact": "利好"
+  }
+}
