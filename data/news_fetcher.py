@@ -1,36 +1,41 @@
 import akshare as ak
-import time
-from typing import List, Dict
-import random
+
 
 class NewsFetcher:
-    def fetch_akshare_news(self, stock_code: str = "000001") -> List[Dict]:
+    def fetch_news(self, limit=50):
+        """从多个来源获取财经新闻"""
+        news_list = []
+
+        # 1. 央视快讯（宏观政策类）
         try:
-            df = ak.stock_news_em(stock=stock_code)
-            news_list = []
-            for _, row in df.iterrows():
-                news_list.append({
-                    "title": row.get("title", "新闻标题"),
-                    "url": row.get("url", ""),
-                    "source": "东方财富",
-                    "timestamp": row.get("datetime", ""),
-                })
-            return news_list
+            df = ak.news_cctv()
+            if df is not None and not df.empty:
+                for _, row in df.iterrows():
+                    title = str(row.get("title", ""))
+                    content = str(row.get("content", ""))
+                    date_str = str(row.get("date", ""))
+                    news_list.append({
+                        'title': title,
+                        'content': content[:500],  # 截断过长内容
+                        'url': '',
+                    })
         except Exception as e:
-            print(f"akshare获取失败，使用模拟数据: {e}")
-            return self._mock_news()
-    
-    def _mock_news(self) -> List[Dict]:
-        """模拟数据（测试用）"""
-        return [
-            {"title": "央行宣布降准0.5个百分点", "url": "https://example.com/1", "source": "模拟", "timestamp": "刚刚"},
-            {"title": "固态电池技术取得重大突破", "url": "https://example.com/2", "source": "模拟", "timestamp": "10分钟前"},
-            {"title": "军工企业获得大额订单", "url": "https://example.com/3", "source": "模拟", "timestamp": "30分钟前"},
-        ]
-    
-    def fetch_all(self) -> List[Dict]:
-        all_news = self.fetch_akshare_news()
-        # 补充模拟数据确保有内容
-        if len(all_news) == 0:
-            all_news = self._mock_news()
-        return all_news[:20]
+            print(f"Error fetching CCTV news: {e}")
+
+        # 2. stock_news_em（个股公告类，作为补充）
+        try:
+            df = ak.stock_news_em()
+            if df is not None and not df.empty:
+                for _, row in df.head(20).iterrows():
+                    title = str(row.get("新闻标题", ""))
+                    content = str(row.get("新闻内容", ""))
+                    url = str(row.get("新闻链接", ""))
+                    news_list.append({
+                        'title': title,
+                        'content': content[:500],
+                        'url': url,
+                    })
+        except Exception as e:
+            print(f"Error fetching stock news: {e}")
+
+        return news_list[:limit]  # 限制返回数量

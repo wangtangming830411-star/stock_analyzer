@@ -33,5 +33,40 @@
     "keywords": ["低空经济", "eVTOL", "飞行汽车", "无人机", "低空飞行"],
     "akshare_board": "低空经济",
     "typical_impact": "利好"
+  },
+  "白酒/消费": {
+    "keywords": ["白酒", "茅台", "五粮液", "泸州老窖", "消费", "食品饮料"],
+    "akshare_board": "白酒概念",
+    "typical_impact": "利好"
+  },
+  "医药/医疗": {
+    "keywords": ["医药", "医疗", "创新药", "疫苗", "医疗器械", "CXO"],
+    "akshare_board": "医药生物",
+    "typical_impact": "利好"
+  },
+  "房地产/基建": {
+    "keywords": ["地产", "房地产", "楼市", "房贷", "基建", "水泥"],
+    "akshare_board": "房地产",
+    "typical_impact": "利好"
+  },
+  "金融/银行": {
+    "keywords": ["银行", "券商", "保险", "金融科技", "利率"],
+    "akshare_board": "银行",
+    "typical_impact": "利好"
+  },
+  "汽车/智能驾驶": {
+    "keywords": ["汽车", "特斯拉", "比亚迪", "智驾", "自动驾驶", "车联网"],
+    "akshare_board": "汽车整车",
+    "typical_impact": "利好"
+  },
+  "数字经济/数据要素": {
+    "keywords": ["数字", "数据", "云计算", "服务器", "数据中心"],
+    "akshare_board": "数字经济",
+    "typical_impact": "利好"
+  },
+  "农业/粮食安全": {
+    "keywords": ["农业", "粮食", "种业", "化肥"],
+    "akshare_board": "农业种植",
+    "typical_impact": "利好"
   }
 }
